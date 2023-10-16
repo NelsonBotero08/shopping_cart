@@ -68,3 +68,15 @@
     transform: translateX(5px);
 
   }
+
+  .main__div--button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+
+  .main__div--button>p{
+    display: flex;
+    margin: 20px
+  }

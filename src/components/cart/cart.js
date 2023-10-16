@@ -17,9 +17,9 @@ function cart() {
 
             <div class="section__div--buttonsCart">
                 <div class="section__div--modifed">
-                    <button id="decrement" class="decrement">-</button>
+                    <button  class="decrement">-</button>
                     <h4 class="quantity">${product.quantity}</h4>
-                    <button id="increment" class="increment">+</button>
+                    <button class="increment">+</button>
                 </div>
 
                 <button class="remove">
