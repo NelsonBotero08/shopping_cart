@@ -1,6 +1,12 @@
+import subTotal from "./subTotal.js";
+
 function cart() {
   const ul = document.querySelector("#cart_list");
   const itemsCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  subTotal();
+
+  ul.innerHTML = "";
 
   for (const product of itemsCart) {
     const li = document.createElement("li");
@@ -18,7 +24,7 @@ function cart() {
             <div class="section__div--buttonsCart">
                 <div class="section__div--modifed">
                     <button  class="decrement">-</button>
-                    <h4 class="quantity">${product.quantity}</h4>
+                    <h4 id="quantity" class="quantity">${product.quantity}</h4>
                     <button class="increment">+</button>
                 </div>
 
@@ -30,6 +36,43 @@ function cart() {
 
     `;
     ul.appendChild(li);
+
+    const quantityProduct = document.querySelector("#quantityProduct");
+    quantityProduct.innerHTML = itemsCart.length;
+
+    const Increment = li.querySelector(".increment");
+
+    Increment.addEventListener("click", () => {
+      product.quantity++;
+      localStorage.setItem("cart", JSON.stringify(itemsCart));
+      cart();
+    });
+
+    const Decrement = li.querySelector(".decrement");
+
+    Decrement.addEventListener("click", () => {
+      if (product.quantity > 1) {
+        product.quantity--;
+        localStorage.setItem("cart", JSON.stringify(itemsCart));
+        cart();
+      }
+    });
+
+    const Remove = li.querySelector(".remove");
+
+    Remove.addEventListener("click", () => {
+      const index = itemsCart.indexOf(product);
+      if (index !== -1) {
+        itemsCart.splice(index, 1);
+      }
+      localStorage.setItem("cart", JSON.stringify(itemsCart));
+      cart();
+      if (itemsCart.length === 0) {
+        const subTotal = document.querySelector("#sub_total");
+        subTotal.innerHTML = "";
+        quantityProduct.innerHTML = "";
+      }
+    });
   }
 }
 

@@ -1,4 +1,4 @@
-import toggleVisibilityOnClick from "../cart/toggleVisibilityOnClick.js";
+import cart from "../cart/cart.js";
 import localStorageCart from "./localStorageCart.js";
 
 function detail() {
@@ -79,6 +79,7 @@ function detail() {
               product.image
             );
             size = null;
+            cart();
 
             const cartDisplay = document.querySelector("#menu_cart");
             cartDisplay.classList.add("main__section--cartActive");
@@ -121,6 +122,11 @@ function detail() {
           `;
 
           seccionrecommnededul.appendChild(li);
+
+          li.addEventListener("click", () => {
+            localStorage.setItem("productModal", `${product.id}`);
+            window.location.href = `../../../detail.html?id=${product.id}`;
+          });
         }
       }
     } catch (error) {

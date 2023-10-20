@@ -19,7 +19,7 @@
 }
 
 .nav__li {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .nav__img {
@@ -29,4 +29,23 @@
 
 .nav__li>i{
   cursor: pointer;
+}
+
+.nav__li--quantity{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__li--quantity>p{
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.nav__p--quantity{
+  position: absolute;
+  margin-bottom: 2px;
+  margin-left: 8px;
+
 }

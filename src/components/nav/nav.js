@@ -6,10 +6,11 @@ function nav() {
 
       <li class="nav__li">
         <img class="nav__img" src="../../../src/assets/logo_nombre.png" alt="logo Academlo">
+
       </li>
 
-      <li class="nav__li">
-        <i id="cart" class='bx bx-cart'></i>
+      <li class="nav__li nav__li--quantity">
+        <i id="cart" class='bx bx-cart '></i><p class="nav__p--quantity" id="quantityProduct"></p>
       </li>
 
     </ul>
